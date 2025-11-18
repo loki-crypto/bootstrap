@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acronis Cyber Cloud - Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+        <header class="sidebar-header">
+            <div class="logo-container">
+                <div class="logo-icon">ICS</div>
+                <span class="logo-text">Backups</span>
+            </div>
+            <button class="toggle-btn" id="toggleCollapse">
+                <span class="material-symbols-rounded">chevron_left</span>
+            </button>
+        </header>
+        
+        <nav class="sidebar-nav">
+            <ul class="nav-list primary-nav">
+                <li class="nav-item-header">
+                    <span class="nav-label">GERENCIAR CONTAS</span>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-tooltip="Visão Geral">
+                        <span class="material-symbols-rounded">dashboard</span>
+                        <span class="nav-label">Overview</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-tooltip="Dispositivos">
+                        <span class="material-symbols-rounded">devices</span>
+                        <span class="nav-label">Dispositivos</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-tooltip="Recuperação de Desastres">
+                        <span class="material-symbols-rounded">storm</span>
+                        <span class="nav-label">Recuperação de Desastres</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link active" data-tooltip="Servidores">
+                        <span class="material-symbols-rounded">dns</span>
+                        <span class="nav-label">Servidores</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-tooltip="Runbooks">
+                        <span class="material-symbols-rounded">backup</span>
+                        <span class="nav-label">Backups</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-tooltip="Conectividade">
+                        <span class="material-symbols-rounded">settings_ethernet</span>
+                        <span class="nav-label">Logs</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-tooltip="Credenciais">
+                        <span class="material-symbols-rounded">key</span>
+                        <span class="nav-label">Credenciais</span>
+                    </a>
+                </li><br><br><br><br><br><br><br><br><br><br><br><br>
+                <li class="nav-item-header">
+                    <span class="nav-label">user-info</span>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-tooltip="Backups">
+                        <span class="material-symbols-rounded">settings</span>
+                        <span class="nav-label">config</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-tooltip="Backups">
+                        <span class="material-symbols-rounded">logout</span>
+                        <span class="nav-label">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="main-content" id="mainContent">
+        <header class="main-header">
+            <button class="mobile-toggle-btn" id="sidebarToggle">
+                <span class="material-symbols-rounded">menu</span>
+            </button>
+            <h1 class="header-title">Servidores</h1>
+            <div class="header-search">
+                <span class="material-symbols-rounded">search</span>
+                <input type="text" placeholder="Buscar servidores...">
+            </div>
+            <div class="header-actions">
+                <button class="action-btn">
+                    <span class="material-symbols-rounded">add</span>
+                </button>
+                <button class="action-btn">
+                    <span class="material-symbols-rounded">refresh</span>
+                </button>
+            </div>
+        </header>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-lg-7 mb-4 mb-lg-0">
+                    <div class="card">
+                        <div class="card-body p-0">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Tipo de Servidor</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Windows 2019</td>
+                                        <td>Primário</td>
+                                        <td><span class="status-dot success"></span> OK</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Windows 2016</td>
+                                        <td>Primário</td>
+                                        <td><span class="status-dot success"></span> OK</td>
+                                    </tr>
+                                    <tr class="table-active">
+                                        <td>DC-Win2016 - recovery</td>
+                                        <td>Recuperação</td>
+                                        <td><span class="status-dot success"></span> OK</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Centos 7 Minimal</td>
+                                        <td>Primário</td>
+                                        <td><span class="status-dot success"></span> OK</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Centos 7</td>
+                                        <td>Primário</td>
+                                        <td><span class="status-dot success"></span> OK</td>
+                                    </tr>
+                                    <tr>
+                                        <td>APP-Win2012R2 - recovery</td>
+                                        <td>Recuperação</td>
+                                        <td><span class="status-dot success"></span> OK</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-5">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <span>DC-Win2016 - recovery</span>
+                            <span class="material-symbols-rounded text-muted" style="cursor: pointer;">settings</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="mb-4" style="font-weight: 700; color: #0f172a;">Servidor de Recuperação</h5>
+                            
+                            <div class="details-list">
+                                <div class="details-item">
+                                    <span class="details-label">Status</span>
+                                    <span class="details-value"><span class="status-dot success"></span> OK</span>
+                                </div>
+                                <div class="details-item">
+                                    <span class="details-label">Estado</span>
+                                    <span class="details-value">Standby</span>
+                                </div>
+                                <div class="details-item">
+                                    <span class="details-label">Último ponto de recuperação</span>
+                                    <span class="details-value">23 Jul 2019, 21:07</span>
+                                </div>
+                                <div class="details-item">
+                                    <span class="details-label">CPU e RAM</span>
+                                    <span class="details-value">1 vCPU, 4.00 GB RAM, 2 Pontos</span>
+                                </div>
+                                <div class="details-item">
+                                    <span class="details-label">Endereço IP</span>
+                                    <span class="details-value">192.168.1.110</span>
+                                </div>
+                                <div class="details-item">
+                                    <span class="details-label">IP de Teste</span>
+                                    <span class="details-value">192.168.1.234</span>
+                                </div>
+                                <div class="details-item">
+                                    <span class="details-label">Acesso à Internet</span>
+                                    <span class="details-value">Habilitado</span>
+                                </div>
+                            </div>
+                            
+                            <hr style="margin: 24px 0; border-color: #e2e8f0;">
+
+                            <div class="d-flex justify-content-end gap-2">
+                                <button class="btn btn-outline-secondary">Testar Failover</button>
+                                <button class="btn btn-primary">Failover</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

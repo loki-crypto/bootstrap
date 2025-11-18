@@ -1,0 +1,120 @@
+/* option-a: css/style.css
+   Apple-like floating sidebar, glass blur, clean spacing.
+*/
+
+:root{
+  --sidebar-w:320px;
+  --sidebar-w-collapsed:84px;
+  --brand:#0c1d3c;
+  --accent:#24b4f0;
+  --muted:#9aa6b3;
+  --glass-blur:10px;
+  --gap:18px;
+  --header-h:68px;
+}
+
+*{box-sizing:border-box}
+html,body,#app{height:100%}
+body{
+  font-family: Inter, Roboto, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial;
+  margin:0;
+  background:#f3f5f8;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Sidebar */
+.sidebar{
+  position:fixed;
+  left:var(--gap);
+  top:var(--gap);
+  bottom:var(--gap);
+  width:var(--sidebar-w);
+  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  backdrop-filter: blur(var(--glass-blur));
+  border-radius:18px;
+  padding:16px;
+  z-index:1100;
+  box-shadow: 0 10px 30px rgba(10,20,40,0.12);
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  transition: width .36s cubic-bezier(.2,.9,.2,1), transform .28s;
+}
+.sidebar.collapsed{width:var(--sidebar-w-collapsed);}
+
+/* top */
+.sidebar .sidebar-top{display:flex; align-items:center; justify-content:space-between}
+.logo{
+  width:48px; height:48px; border-radius:12px;
+  display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--brand),var(--accent)); color:#fff; font-weight:700;
+}
+.brand-text small{display:block; opacity:0.75; font-size:12px}
+.btn-icon{
+  background:transparent; border:none; color:var(--muted); font-size:20px;
+  padding:8px; border-radius:10px;
+}
+.btn-icon:hover{background:rgba(255,255,255,0.02); color:var(--accent)}
+
+/* menu */
+.menu{flex:1; overflow:auto}
+.menu ul{list-style:none; padding:0; margin:0}
+.menu-link{
+  display:flex; gap:12px; align-items:center; padding:10px 12px;
+  color:var(--muted); text-decoration:none; border-radius:10px;
+}
+.menu-link .material-symbols-rounded{font-size:20px}
+.menu-link .label{font-size:0.95rem}
+.menu-link:hover{background:rgba(255,255,255,0.02); color:#fff}
+.menu-link.active{background:linear-gradient(90deg, rgba(36,180,240,0.12), rgba(36,180,240,0.04)); color:#fff}
+.divider{padding:12px 12px; color:var(--muted); font-size:12px}
+
+/* footer */
+.sidebar-footer{padding-top:8px;border-top:1px solid rgba(255,255,255,0.02)}
+.user{display:flex; gap:10px; align-items:center}
+.avatar{width:40px;height:40px;border-radius:10px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+.user-info .name{font-weight:600}
+.user-info .role{font-size:12px;color:var(--muted)}
+
+/* content */
+.content{
+  margin-left:calc(var(--sidebar-w) + 36px);
+  transition: margin-left .36s;
+  padding-top: calc(var(--header-h) + 12px);
+  min-height:100vh;
+}
+.sidebar.collapsed + .content{margin-left:calc(var(--sidebar-w-collapsed) + 36px)}
+
+/* topbar */
+.topbar{
+  height:var(--header-h);
+  display:flex; align-items:center; gap:18px;
+  padding:14px 24px; position:fixed; left:0; right:0; top:var(--gap); z-index:900;
+  background:transparent;
+}
+.page-title{font-size:1.25rem; margin:0}
+.search{display:flex; align-items:center; gap:8px; background:#fff; padding:6px 10px; border-radius:10px; border:1px solid #eef2f6}
+.search input{border:0; outline:none; min-width:220px}
+.actions{margin-left:auto; display:flex; gap:8px}
+
+/* tables / cards */
+.card{border-radius:12px}
+.table th, .table td{vertical-align:middle}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:8px}
+.dot-ok{background:#28a745}
+
+/* overlay (mobile) */
+.overlay{position:fixed; inset:0; background:rgba(0,0,0,0.4); opacity:0; visibility:hidden; transition:opacity .2s}
+.overlay.active{opacity:1; visibility:visible}
+
+/* collapsed labels hidden */
+.sidebar.collapsed .label{display:none}
+
+/* responsive */
+@media (max-width:991px){
+  .sidebar{left:12px; right:auto; transform:translateX(-100%); width:280px}
+  .sidebar.mobile-open{transform:translateX(0)}
+  .content{margin-left:0; padding-top:86px}
+  .topbar{left:0; right:0; top:12px}
+}

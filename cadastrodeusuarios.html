@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container w-50">
+        <h1>Cadastro de Usuários</h1>
+    <form action="/action_page.php">
+        <label for="fname">Primeiro nome: </label><br>
+        <input type="text" id="fname" name="fname" placeholder="name"><br>
+        <label for="lname">password:</label><br>
+        <input type="password" id="lname" name="lname" placeholder="Senha"><br>
+        <label for="email">email:</label><br>
+        <input type="email" id="email" name="email" placeholder="email@email.com.br"><br>
+        <label for="cpf">cpf:</label><br>
+        <input type="number" id="cpf" name="cpf" placeholder="máximo de 11 digitos" maxlength="11" size="11"><br>
+        
+        <input type="submit" value="limpar lista">
+        <input type="submit" value="Enviar Cadastro">
+    </form><br><br><br>
+     </div>
+    
+    <div class="container w-50">
+    <form action="/vamokrl_page.php" method="post"> 
+        <div class="mb-3">
+        <label for="name" class="form-label">Nome completo</label>
+        <input type="name" class="form-control" id="name" name="nome1" placeholder="name">
+    </div>
+    <div class="mb-3">
+        <label for="senha1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="senha1" name="senha1" placeholder="senha">
+    </div>
+    <div class="mb-3">
+        <label for="cpf2" class="form-label">cpf</label>
+        <input type="number" class="form-control" id="cpf2" name="cpf2" placeholder="Digite apenas números" maxlength="11">
+    </div>
+    <div class="mb-3">
+        <label for="email1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email1" aria-describedby="emailHelp" name="email1" placeholder="email@email.com">
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">confirme as informações</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar Cadastro</button>
+    <button type="submit" class="btn btn-primary">Limpar Cadastro</button>
+    </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
